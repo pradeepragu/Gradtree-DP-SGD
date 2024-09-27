@@ -11,7 +11,7 @@ from opacus.accountants.utils import get_noise_multiplier
 
 # Data Preparation
 # Load dataset
-data_path = '/content/car.data'
+data_path = 'car.data'
 columns = ["buying", "maint", "doors", "persons", "lug_boot", "safety", "class"]
 df = pd.read_csv(data_path, names=columns)
 
