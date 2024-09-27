@@ -7,3 +7,7 @@ To run Opacus with a different privacy budget, change the privacy budget, Right 
 
 #FuncTorch
 
+#manually adjust the noise multiplier to get a realistic privacy budget
+-to obtain Privacy budget 5.7 set noise multiplier 6
+-to obtain Privacy budget 3.4 set noise multiplier 13
+-to obtain Privacy budget 1.02 set noise multiplier 20
