@@ -16,7 +16,6 @@ torch.manual_seed(0)
 # Load and preprocess the dataset
 car_data = pd.read_csv('/content/car.data', header=None)
 
-# Preprocessing steps:
 # Assume the last column is the target, and the rest are features.
 features = car_data.iloc[:, :-1]
 targets = car_data.iloc[:, -1]
@@ -88,11 +87,11 @@ optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
 
 # DP-SGD parameters
 max_grad_norm = 1.0
-target_epsilon = 1.0  # Privacy budget target
+target_epsilon = 10.0  # Privacy budget target
 delta = 1e-5          # Delta value
 noise_multiplier = 20  # noise multiplier
 
-# Helper functions for DP-SGD
+
 def compute_per_sample_gradients(model, loss_fn, data, targets):
     model.zero_grad()
     outputs = model(data)
@@ -152,7 +151,7 @@ losses = []
 epsilons = []
 train_accuracies = []
 
-for epoch in range(50):  # Specify number of epochs here
+for epoch in range(50):
     model.train()
     epoch_loss = 0
     correct_train = 0
